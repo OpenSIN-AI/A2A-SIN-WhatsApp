@@ -1,0 +1,15 @@
+name: n8n CI/CD Trigger
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+jobs:
+  trigger-n8n:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send webhook to n8n
+        run: |
+          curl -X POST "${{ secrets.N8N_WEBHOOK_URL }}" \
+            -H "Content-Type: application/json" \
+            -d '{"repo":"${{ github.repository }}","event":"${{ github.event_name }}","branch":"${{ github.ref_name }}","commit":"${{ github.sha }}"}'
