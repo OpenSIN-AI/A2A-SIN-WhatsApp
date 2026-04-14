@@ -1,1 +1,36 @@
-{"id":"sin-whatsapp","displayName":"sin whatsapp","team":"team-messaging","description":"WhatsApp messaging integration — WhatsApp Business API.","version":"1.0.0","deployment":{"workforceIndex":"https://a2a.delqhi.com","landingPage":"https://a2a.delqhi.com/agents/sin-whatsapp","publicA2A":"https://a2a.delqhi.com/agents/sin-whatsapp","cimdAnchor":"https://a2a.delqhi.com/agents/sin-whatsapp"},"a2a":{"wellKnownCard":"/.well-known/agent-card.json","rpcPath":"/a2a/v1","transport":"jsonrpc-over-http"},"mcp":{"transport":"stdio","configPath":"./mcp-config.json"},"marketplace":{"pricingModel":"standard_tier","monthlyPrice":999,"purchaseModes":["subscription"],"category":"messaging"},"primaryModel":"openai/gpt-5.4"}
+{
+  "name": "A2A-SIN-WhatsApp",
+  "slug": "a2a-sin-whatsapp",
+  "type": "Messaging Agent",
+  "description": "WhatsApp messaging agent",
+  "team": "Team Messaging",
+  "teamManager": "A2A-SIN-Messaging",
+  "primaryModel": "google/antigravity-gemini-3-flash",
+  "capabilities": [
+    "whatsapp_send",
+    "whatsapp_receive",
+    "media_handling",
+    "group_management"
+  ],
+  "marketplace": {
+    "pricingModel": "subscription",
+    "monthlyPrice": 29.99,
+    "purchaseModes": [
+      "monthly",
+      "annual"
+    ],
+    "category": "messaging"
+  },
+  "controlPlane": {
+    "healthEndpoint": "/health",
+    "cardEndpoint": "/.well-known/agent-card.json",
+    "a2aEndpoint": "/a2a/v1"
+  },
+  "deployment": {
+    "workforceIndex": "team-messaging",
+    "landingPage": "https://a2a.delqhi.com/agents/a2a-sin-whatsapp",
+    "publicA2A": "https://a2a.delqhi.com/a2a/v1/a2a-sin-whatsapp",
+    "cimdAnchor": "https://a2a.delqhi.com/agents/a2a-sin-whatsapp",
+    "vmServer": "hf-cpu-basic"
+  }
+}
